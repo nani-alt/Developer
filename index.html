@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeLink | Blood Donor Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <h1>LifeLink Blood Donor Finder</h1>
+        <p>
+          Find verified blood donors quickly, submit urgent requests, and help
+          save lives.
+        </p>
+        <div class="stats" id="stats"></div>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <section class="card">
+        <h2>Register as a Donor</h2>
+        <form id="donor-form" class="form-grid">
+          <label>
+            Full Name
+            <input name="name" required maxlength="60" />
+          </label>
+          <label>
+            Phone Number
+            <input name="phone" required pattern="[0-9+\-\s]{7,20}" />
+          </label>
+          <label>
+            City
+            <input name="city" required maxlength="40" />
+          </label>
+          <label>
+            Blood Group
+            <select name="bloodGroup" required>
+              <option value="">Select group</option>
+              <option>A+</option><option>A-</option>
+              <option>B+</option><option>B-</option>
+              <option>AB+</option><option>AB-</option>
+              <option>O+</option><option>O-</option>
+            </select>
+          </label>
+          <label>
+            Last Donation Date
+            <input type="date" name="lastDonation" />
+          </label>
+          <label>
+            Availability
+            <select name="availability" required>
+              <option>Available</option>
+              <option>Busy today</option>
+              <option>Not available</option>
+            </select>
+          </label>
+          <label class="full">
+            Notes
+            <textarea name="notes" rows="2" maxlength="140" placeholder="Any info for recipients"></textarea>
+          </label>
+          <button type="submit">Save Donor</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Find Donors</h2>
+        <form id="filter-form" class="filter-row">
+          <input id="search-name" placeholder="Search by name" />
+          <select id="filter-group">
+            <option value="">All Groups</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+          </select>
+          <input id="filter-city" placeholder="Filter by city" />
+          <select id="filter-availability">
+            <option value="">All Availability</option>
+            <option>Available</option>
+            <option>Busy today</option>
+            <option>Not available</option>
+          </select>
+          <button type="button" id="reset-filters">Reset</button>
+        </form>
+        <div id="donor-list" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h2>Emergency Blood Request</h2>
+        <form id="request-form" class="form-grid">
+          <label>
+            Patient Name
+            <input name="patientName" required />
+          </label>
+          <label>
+            Required Blood Group
+            <select name="requiredGroup" required>
+              <option value="">Select group</option>
+              <option>A+</option><option>A-</option>
+              <option>B+</option><option>B-</option>
+              <option>AB+</option><option>AB-</option>
+              <option>O+</option><option>O-</option>
+            </select>
+          </label>
+          <label>
+            Hospital
+            <input name="hospital" required />
+          </label>
+          <label>
+            City
+            <input name="city" required />
+          </label>
+          <label class="full">
+            Contact Number
+            <input name="contact" required pattern="[0-9+\-\s]{7,20}" />
+          </label>
+          <button type="submit">Submit Request</button>
+        </form>
+        <div id="request-list" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h2>Compatibility Guide</h2>
+        <p class="small">Quick reference for red blood cell donation compatibility:</p>
+        <div id="compatibility" class="compatibility"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made for fast, local blood donation coordination in English.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
